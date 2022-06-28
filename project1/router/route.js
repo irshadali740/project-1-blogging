@@ -12,14 +12,15 @@ router.post("/authors",authorController.createAuthor)
 
 router.post("/authorlogin", authorController.loginauthor)
 
-router.post("/blogs/:userId", middleware.authentication,middleware.authorization, blogscontroller.createBlogs)
+router.post("/blogs/", middleware.authentication, blogscontroller.createBlogs)
 
-router.get("/specificblogs/:userId", middleware.authentication,middleware.authorization, blogscontroller.getblogs)
+router.get("/blogs", middleware.authentication, blogscontroller.getblogs)
 
-router.put("/blogs/:userId/:blogId", middleware.authentication,middleware.authorization, blogscontroller.updateBlog)
+router.put("/blogs/:blogId", middleware.authentication, blogscontroller.updateBlog)
 
-router.delete("/blogs/:userId/:blogId", middleware.authentication,middleware.authorization, blogscontroller.deleteBlogsById)
+router.delete("/blogs/:blogId", middleware.authentication, blogscontroller.deleteBlogsById)
 
-router.delete("/blogs/:userId", middleware.authentication,middleware.authorization, blogscontroller.deleteBlogByQuerConditoin)
+router.delete("/blogs", middleware.authentication, blogscontroller.deleteBlogByQuerConditoin)
+
 
 module.exports = router
